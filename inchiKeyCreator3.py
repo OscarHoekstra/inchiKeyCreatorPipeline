@@ -79,6 +79,8 @@ The generated file gets deleted in the end.
 def createInchiKeys(molConvertPath,tempPath,smilePath):
 	print(smilePath)
 	#run commandline program molconvert to turn a file of smiles strings in to a file of inchikeys.
+	#The '-2:e' in the following command tells molconvert to create a 2-Dimensional structure.
+	#We should change this to 3 to create propper InChIKeys!
 	os.system("{0} -2:e inchikey:SAbs {1} -o {2}".format(molConvertPath + "molconvert" ,smilePath,tempPath));
 	inchiKeyList = [];
 	for line in open(tempPath,"r"):
